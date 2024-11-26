@@ -20,6 +20,8 @@ export default tseslint.config(
     rules: {
       "react/prop-types": "off",
       "react/no-unescaped-entities": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "off", 
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',

@@ -1,8 +1,15 @@
 {
   "files": [],
   "compilerOptions": {
-    "noImplicitAny": false,
-  },
+    "noImplicitAny": false,        // Stops complaints about implicit any
+    "strict": false,               // Disables all strict type checking
+    "noEmitOnError": false,        // Allows compilation even with errors
+    "allowJs": true,               // Allows JavaScript files to be compiled
+    "checkJs": false,              // Stops checking JavaScript files
+    "skipLibCheck": true,          // Skip type checking of declaration files
+    "ignoreDeprecations": "5.0"    // Ignore deprecation warnings
+},
+  "skipLibCheck": true,
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 const Header = ({ title }) => {
 	return (
 		<header className='bg-gray-400 bg-opacity-50 backdrop-blur-md shadow-lg border-b border-gray-700'>

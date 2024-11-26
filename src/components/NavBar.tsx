@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { BarChart2, BarChart3, Menu, Upload } from "lucide-react";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";

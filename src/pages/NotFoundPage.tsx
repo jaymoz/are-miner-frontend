@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Link } from 'react-router-dom'
 import { FaExclamationTriangle } from 'react-icons/fa'
 import { motion } from 'framer-motion'

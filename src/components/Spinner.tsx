@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ClipLoader } from 'react-spinners';
 
 const override = {

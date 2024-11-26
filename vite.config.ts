@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
-import tailwindcss from "tailwindcss";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,7 +8,6 @@ export default defineConfig({
     port: 8000,
     proxy:{
       '/api': {
-        // target: 'http://127.0.0.1:8100',
         target: 'http://50.16.24.62:80',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
@@ -18,4 +16,3 @@ export default defineConfig({
   }
 })
 
-// http://50.16.24.62:80/extract_requirements
