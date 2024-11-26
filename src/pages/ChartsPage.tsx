@@ -65,7 +65,7 @@ const ChartsPage = () => {
             const file = await dataToBlob(currentFile);
             formData.append('csv_file', file);
 
-            const response = await fetch('https://52.91.210.118:443/eda', {
+            const response = await fetch('http://52.91.210.118:80/eda', {
                 method: 'POST',
                 body: formData,
             });
