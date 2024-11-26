@@ -1,18 +1,25 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
     port: 8000,
-    proxy:{
+    https: {
+      key: './cert/key.pem',
+      cert: './cert/cert.pem',
+    },
+    proxy: {
       '/api': {
-        target: 'http://50.16.24.62:80',
+        target: 'https://52.91.210.118:443',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        secure: false,  // For self-signed certificates
+        ssl: {
+          key: './cert/key.pem',
+          cert: './cert/cert.pem',
+        }
       }
     }
   }
 })
-
