@@ -64,7 +64,7 @@ const ExtractedReqPage = () => {
             const file = await dataToBlob(currentFile);
             formData.append('csv_file', file);
 
-            const response = await fetch('/api/extract_requirements', {
+            const response = await fetch('https://52.91.210.118:443/extract_requirements', {
                 method: 'POST',
                 body: formData,
             });

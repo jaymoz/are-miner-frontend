@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import Spinner from "../components/Spinner";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import https from 'https';
 
 const HomePage = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -66,7 +68,7 @@ const HomePage = () => {
       const file = await dataToBlob(currentFile);
       formData.append('csv_file', file);
       
-      const response = await fetch('/api/eda', {
+      const response = await fetch('https://52.91.210.118:443/eda', {
         method: 'POST',
         body: formData,
       });
@@ -100,7 +102,7 @@ const HomePage = () => {
       const file = await dataToBlob(currentFile);
       formData.append('csv_file', file);
 
-      const response = await fetch('/api/extract_requirements', {
+      const response = await fetch('https://52.91.210.118:443/extract_requirements', {
         method: 'POST',
         body: formData,
       });
