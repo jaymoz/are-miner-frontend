@@ -232,20 +232,25 @@ const ExtractedReqPage = () => {
         <div className='flex-1 overflow-auto relative z-10'>
             <main className='max-w-7xl mx-auto py-6 px-4 lg:px-8'>
                 {/* Header with actions */}
-                <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-2xl font-semibold text-gray-800">Extracted Requirements Analysis</h1>
-                    <div className="flex gap-3">
+                <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+                    {/* Heading Section */}
+                    <h1 className="text-lg md:text-2xl font-semibold text-gray-800 mb-4 md:mb-0">
+                        Extracted Requirements Analysis
+                    </h1>
+
+                    {/* Buttons Section */}
+                    <div className="flex flex-wrap gap-3">
                         <button
-                            onClick={handleRefreshData}
-                            className="px-4 py-2 text-sm bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+                        onClick={handleRefreshData}
+                        className="px-4 py-2 text-sm bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
                         >
-                            Refresh Data
+                        Refresh Data
                         </button>
                         <button
-                            onClick={handleResetData}
-                            className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+                        onClick={handleResetData}
+                        className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
                         >
-                            Clear Data
+                        Clear Data
                         </button>
                     </div>
                 </div>
@@ -261,13 +266,13 @@ const ExtractedReqPage = () => {
             
                 <PieChartComponent data={topRequirementsData} title='Top 5 Extracted Requirements'/>
                 
-                <LineChartComponent data={distributionOverTime} title='Distribution over Time' />
+                <LineChartComponent data={distributionOverTime} title='Distribution over Time' xLabel="Time(MM/YYYY)" yLabel="Number of Reviews"/>
               
-                <BarChartComponent data={distributionOverReviews} title='Distribution Over Reviews' />
+                <BarChartComponent data={distributionOverReviews} title='Distribution Over Reviews' xLabel="Number of Requirements" yLabel="Number of Reviews" />
              
-                <BarChartComponent data={distributionOverApps} title='Distribution Over Apps' />
+                <BarChartComponent data={distributionOverApps} title='Distribution Over Apps' xLabel="Apps" yLabel="Number of Requirements" />
              
-                <BarChartComponent data={wordCountDistribution} title='Word Count Distribution'  />
+                <BarChartComponent data={wordCountDistribution} title='Word Count Distribution' xLabel="Number of Words" yLabel="Number of Requirements" />
 
                 <ReqTable data={data.records} />
                

@@ -142,28 +142,38 @@ const ReqTable = ({ data = {}, title = "Extracted Requirements" }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4 }}
     >
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold text-gray-700">{title}</h2>
-        <div className="flex items-center gap-2">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search requirements..."
-              className="bg-gray-700 text-white placeholder-gray-200 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Search className="absolute left-3 top-2.5 text-gray-700" size={18} />
-          </div>
-          <button
-            onClick={downloadCSV}
-            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
-          >
-            <Download size={18} />
-            <span>Download CSV</span>
-          </button>
-        </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-4">
+      <h2 className="text-xl font-semibold text-gray-700">{title}</h2>
+        {/* Search Bar */}
+        <motion.div
+          className="flex items-center relative w-full sm:w-auto"
+          whileHover={{ scale: 1.02 }}
+          whileFocus={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 200 }}
+        >
+          <input
+            type="text"
+            placeholder="Search requirements..."
+            className="w-full sm:w-64 bg-gray-700 text-white placeholder-gray-200 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
+        </motion.div>
+
+        {/* Download Button */}
+        <motion.button
+          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all w-full sm:w-auto"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={downloadCSV}
+        >
+          <Download size={18} />
+          <span>Download CSV</span>
+        </motion.button>
       </div>
+
 
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-700">

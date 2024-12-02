@@ -130,6 +130,7 @@ const ChartsPage = () => {
                         </button>
                     </div>
                 </div>
+
             </motion.div>
         );
     }
@@ -186,20 +187,26 @@ const ChartsPage = () => {
         <div className='flex-1 overflow-auto relative z-10'>
             <main className='max-w-7xl mx-auto py-6 px-4 lg:px-8'>
                 {/* Header with actions */}
-                <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-2xl font-semibold text-gray-800">Exploratory Data Analysis</h1>
-                    <div className="flex gap-3">
+
+                <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+                    {/* Heading Section */}
+                    <h1 className="text-lg md:text-2xl font-semibold text-gray-800 mb-4 md:mb-0">
+                            Exploratory Data Analysis
+                    </h1>
+
+                    {/* Buttons Section */}
+                    <div className="flex flex-wrap gap-3">
                         <button
-                            onClick={handleRefreshData}
-                            className="px-4 py-2 text-sm bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+                        onClick={handleRefreshData}
+                        className="px-4 py-2 text-sm bg-blue-500 text-white rounded-md hover:bg-green-600 transition-colors"
                         >
-                            Refresh Data
+                        Refresh Data
                         </button>
                         <button
-                            onClick={handleResetData}
-                            className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+                        onClick={handleResetData}
+                        className="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
                         >
-                            Clear Data
+                        Clear Data
                         </button>
                     </div>
                 </div>
@@ -237,12 +244,16 @@ const ChartsPage = () => {
                     
                         <LineChartComponent 
                             data={timeData} 
-                            title='Distribution Over Time' 
+                            title='Distribution Over Time'
+                            xLabel='Time (MM/YYYY)'
+                            yLabel='Number of Reviews'
                         />
           
                         <BarChartComponent 
                             data={appData} 
                             title='App Distribution'
+                            xLabel="Apps"
+                            yLabel="Number of Reviews"
                         />
     
                 </motion.div>

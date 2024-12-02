@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 const COLORS = ["#6366F1", "#8B5CF6", "#EC4899", "#10B981", "#F59E0B"];
 
-const BarChartComponent = ({ data, title='', xAxisLabel='X Axis', yAxisLabel='Y Axis'}) => {
+const BarChartComponent = ({ data, title = '', xLabel = '', yLabel = ''}) => {
   // If no data is provided, show empty state
   if (!data || data.length === 0) {
     return (
@@ -47,11 +47,27 @@ const BarChartComponent = ({ data, title='', xAxisLabel='X Axis', yAxisLabel='Y 
               fontSize: 13, // Adjust the size of the labels
               fill: "#4B5563" // Optional: Customize color
             }}
+          //   label={{ 
+          //     value: xLabel, 
+          //     position: "insideBottom", 
+          //     offset: -20, 
+          //     fill: '#4B5563', 
+          //     fontSize: 14,
+          //     fontWeight: "500",
+          // }}
           />
           <YAxis 
             stroke="#9CA3AF" 
-            // height={500}
-            allowDecimals={false} 
+            allowDecimals={false}
+            label={{ 
+              value: yLabel, 
+              angle: -90, 
+              fill: '#4B5563', 
+              fontSize: 14,
+              fontWeight: "500",
+              dx: -20
+      
+          }}
           />
           <Tooltip
             contentStyle={{
@@ -84,7 +100,7 @@ const BarChartComponent = ({ data, title='', xAxisLabel='X Axis', yAxisLabel='Y 
           <Bar 
             dataKey="value" 
             fill="#8884d8" 
-            name="Reviews"
+            name={xLabel}
           >
             {data.map((entry, index) => (
               <Cell 
