@@ -64,11 +64,14 @@ const ChartsPage = () => {
         try {
             const file = await dataToBlob(currentFile);
             formData.append('csv_file', file);
-
-            const response = await fetch('https://areminer.xyz/eda', {
+            const response = await fetch('https://52.206.203.186:443/eda', {
                 method: 'POST',
                 body: formData,
             });
+            // const response = await fetch('https://areminer.xyz/eda', {
+            //     method: 'POST',
+            //     body: formData,
+            // });
 
             if (!response.ok) {
                 throw new Error('Failed to get EDA');
